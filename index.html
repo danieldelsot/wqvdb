@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="jquery-3.1.7.min.js"></script>
+        <script src="renderer.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <title>El valle de Bayes</title>
+    </head>
+    <body>
+        <div id="menu">
+            <div class="menuitem" onclick="cargar('intro')">
+                <label>Introducción</label>
+            </div>
+            <div class="menuitem" onclick="cargar('tarea')">
+                <label>Tarea</label>
+            </div>
+            <div class="menuitem" onclick="cargar('proc');paginar(1)">
+                <label>Proceso</label>
+            </div>
+            <div class="menuitem" onclick="cargar('ev')">
+                <label>Evaluación</label>
+            </div>
+            <div class="menuitem" onclick="cargar('conc')">
+                <label>Conclusiones</label>
+            </div>
+        </div>
+        <div id="contenido">
+            <div class="cont" id="intro" style="display:none">
+                <h1 style="font-size: 35px;text-align:center">BIENVENIDO AL VALLE DE BAYES</h1>
+                <p>Sólo el 20% de los ríos generan un valle, y el 35% de los valles no han sido originados por ríos. Si la probabilidad de que te fueses de excursión a un valle era del 3% ¿Cuál es la probabilidad de que haya un río por aquí?</p>
+                <p>Aunque no lo parezca, esta información es suficiente para responder a la pregunta. En El Valle de Bayes aprenderás el famoso Teorema de Bayes que te ayudará a darle respuesta.</p>
+            </div>
+            <div class="cont" id="tarea" style="display:none">
+                <h1 style="font-size: 35px;text-align:center">TAREA</h1>
+                <p>En el apartado "Proceso" encontrarás varias categorías con materiales para aprender los conceptos probabilísticos necesarios hasta entender el Teorema de Bayes.</p>
+                <p>Sigue las categorías en orden y realiza las actividades que se proponen.</p>
+                <p>Al final de cada categoría hay un desafío. Si suministras a la aplicación las respuestas correctas obtendrás una serie de códigos que debes entregar a tu profesor.</p>
+                <p>Puedes comprobar tus códigos en el apartado "Evaluación".</p>
+                <p>Al final del proceso podrás ver un vídeo de ampliación en inglés. Debes realizar un breve trabajo explicando el resultado del mismo en no más de media cara de hoja.</p>
+            </div>
+            <div class="cont" id="proc" style="display:none">
+                <div class="pag" id="pag1" style="display:none">
+                    <h1 style="font-size: 35px;text-align:center">1. Eventos mutuamente excluyentes</h1>
+                    <p>Utiliza la siguiente presentación para aprender sobre eventos mutuamente excluyentes. Después resuelve sus ejercicios.</p>
+                    <div style="text-align: center;">
+                        <iframe src="https://drive.google.com/file/d/19Dv7NSHsL_c7Ug5ZUZd_HVIsvs5z2Fx4/preview" width="700" height="400" allow="autoplay"></iframe>
+                    </div>
+                    <p>Desafío: En una baraja francesa, ¿cuál es la probabilidad de robar una carta de espadas, diamantes, o una reina? Da la solución en forma de fracción simplificada.</p>
+                    <input type="text" id="sol1"><button onclick="responder(1)">Responder</button>
+                    <p id="resp1"></p>
+                    <div class="flechas">
+                        <div class="flecha" onclick="paginar(2)">→</div>
+                    </div>
+                </div>
+                <div class="pag" id="pag2" style="display:none">
+                    <h1 style="font-size: 35px;text-align:center">2. Probabilidad condicionada</h1>
+                    <p>Utiliza la siguiente presentación para aprender sobre la probabilidad condicionada y resuelve sus ejercicios.</p>
+                    <div style="text-align: center;">
+                        <iframe src="https://drive.google.com/file/d/1scYKqFii-OBqPSyAUU1ZMs_cYPOCQtyI/preview" width="700" height="400" allow="autoplay"></iframe>
+                    </div>
+                    <p>Desafío: ¿Cuál es la probabilidad de haber robado el as de corazones en una baraja francesa sabiendo que es una carta roja y ya se habían robado ases de diamantes y de picas? Da la solución en forma de fracción simplificada.</p>
+                    <input type="text" id="sol2"><button onclick="responder(2)">Responder</button>
+                    <p id="resp2"></p>
+                    <div class="flechas">
+                        <div class="flecha" onclick="paginar(1)">←</div>
+                        <div class="flecha" onclick="paginar(3)">→</div>
+                    </div>
+                </div>
+                <div class="pag" id="pag3" style="display:none">
+                    <h1 style="font-size: 35px;text-align:center">3. Fórmula de Bayes</h1>
+                    <p>Leer el siguiente documento sobre el Teorema de Bayes y realizar el ejercicio que contiene.</p>
+                    <div style="text-align: center;">
+                        <iframe src="https://drive.google.com/file/d/1_vhGGu8x_ZMKzqPLagGQA9-_nYh5Rzrn/preview" width="700" height="400" allow="autoplay"></iframe>
+                    </div>
+                    <p>Desafío: Si la probabilidad de tener gripe es del 15% y de tener dolor de cabeza del 40% y se sabe que el 80% de pacientes de gripe tienen dolor de cabeza, ¿cuál es la probabilidad de tener gripe sabiendo que se tiene dolor de cabeza?</p>
+                    <input type="text" id="sol3"><button onclick="responder(3)">Responder</button>
+                    <p id="resp3"></p>
+                    <div class="flechas">
+                        <div class="flecha" onclick="paginar(2)">←</div>
+                        <div class="flecha" onclick="paginar(4)">→</div>
+                    </div>
+                </div>
+                <div class="pag" id="pag4" style="display:none">
+                    <h1 style="font-size: 35px;text-align:center">Vídeo final</h1>
+                    <p>Para terminar, visualiza el siguiente vídeo y explica con tus palabras lo que has aprendido.</p>
+                    <div style="text-align: center;">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ytfCdqWhmdg?si=SYNCKqJMTuioeeSd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="flechas">
+                        <div class="flecha" onclick="paginar(3)">←</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cont" id="ev" style="display:none">
+                <h1 style="font-size: 35px;text-align:center">Evaluación</h1>
+                <p>La calificación obtenida en la actividad se divide en los siguientes apartados:</p>
+                <ul>
+                    <li>45% la realización de actividades, un 15% cada categoría.</li>
+                    <li>45% la correcta entrega de códigos de desafío, un 15% cada categoría.</li>
+                    <li>10% el trabajo sobre el vídeo final.</li>
+                </ul>
+                <p>Comprueba aquí tus códigos:</p><input type="text" id="cod"><button onclick="comp()">Comprobar</button>
+                <p id="resp"></p>
+            </div>
+            <div class="cont" id="conc" style="display:none">
+                <h1 style="font-size: 35px;text-align:center">CONCLUSIONES</h1>
+                <p>En ocasiones, el cálculo de probabilidades puede parecer muy complicado y enrevesado, pero una vez entendemos el problema y disponemos de las herramientas adecuadas éste se vuelve mucho más abordable.</p>
+                <p>Ahora que conoces los eventos mutuamente excluyentes y las fórmulas de probabilidad condicionada y Teorema de Bayes puedes volver a la introducción y reflexionar sobre la pregunta planteada.</p>
+                <p>Por favor, rellena el cuestionario de retroalimentación <button onclick="window.open('https:\/\/docs.google.com/forms/d/e/1FAIpQLSeZ8Mb65gIM-1bDFoClJr1cunCdHXOVooPBI9k7X3dbfmfGvg/viewform?usp=sf_link','_blank')">aquí</button>.</p>
+                <p>Esperamos que hayas aprendido y disfrutado de tu aventura por El Valle de Bayes.</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+#menu{
+    font-size:20px;
+    color:white;
+    text-shadow: black 1px 0 2px;
+    background: rgb(255,255,255);
+    background: linear-gradient( rgba(100,100,255,1) 0%, rgba(100,100,255,1) 0%, rgba(0,0,255,1) 100%);
+    text-align: center;
+}
+
+.menuitem{
+    border:2px solid aqua;
+    display:inline-block;
+    width:15%
+}
+
+#contenido{
+    vertical-align: middle;
+    height:900px;
+}
+
+body{
+    background-image: url("bgi.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+p,li{
+    margin:5px;
+    margin-right:5px;
+    margin-top: 50px;
+}
+
+input,button{
+    font-size:30px;
+    height:35px;
+    background-color:aqua
+}
+
+.flechas{
+    position:absolute;
+    bottom:0px;
+    right:0px
+}
+
+.flecha{
+    display:inline-block
+}
+
+button{
+    height:40px
+}
+
+.cont{
+    background-color: rgba(0,0,0,0.5);
+    text-align:justify;
+    font-size:30px;
+    color:aquamarine;
+    text-shadow: black 1px 0 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
